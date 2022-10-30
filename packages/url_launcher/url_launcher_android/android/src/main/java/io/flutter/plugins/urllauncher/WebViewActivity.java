@@ -106,6 +106,9 @@ public class WebViewActivity extends Activity {
           };
 
       final WebView newWebView = new WebView(webview.getContext());
+      webview.removeJavascriptInterface("searchBoxJavaBridge_");
+      webview.removeJavascriptInterface("accessibility");
+      webview.removeJavascriptInterface("accessibilityTraversal");
       newWebView.setWebViewClient(webViewClient);
 
       final WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
@@ -120,6 +123,9 @@ public class WebViewActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     webview = new WebView(this);
+    webview.removeJavascriptInterface("searchBoxJavaBridge_");
+    webview.removeJavascriptInterface("accessibility");
+    webview.removeJavascriptInterface("accessibilityTraversal");
     setContentView(webview);
     // Get the Intent that started this activity and extract the string
     final Intent intent = getIntent();
